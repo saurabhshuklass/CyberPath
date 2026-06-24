@@ -1,10 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PracticalActivity">
+    android:background="#08142A">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Practical Training"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hands-on Cyber Security Labs"
+            android:textColor="#8BA3D0"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Password Checker -->
+
+        <LinearLayout
+            android:id="@+id/cardPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password Strength Checker"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Analyze password strength and security."
+                android:textColor="#8BA3D0"
+                android:layout_marginTop="4dp"/>
+
+            <Button
+                android:id="@+id/btnPassword"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:text="Launch"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+        <!-- Phishing Detector -->
+
+        <LinearLayout
+            android:id="@+id/cardPhishing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phishing URL Detector"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detect suspicious and phishing URLs."
+                android:textColor="#8BA3D0"
+                android:layout_marginTop="4dp"/>
+
+            <Button
+                android:id="@+id/btnPhishing"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:text="Launch"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+        <!-- URL Safety Checker -->
+
+        <LinearLayout
+            android:id="@+id/cardUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="URL Safety Checker"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan URLs for malware and threats."
+                android:textColor="#8BA3D0"
+                android:layout_marginTop="4dp"/>
+
+            <Button
+                android:id="@+id/btnUrl"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:text="Launch"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+        <!-- Social Engineering -->
+
+        <LinearLayout
+            android:id="@+id/cardSocial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Social Engineering Simulator"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Identify fake messages and scenarios."
+                android:textColor="#8BA3D0"
+                android:layout_marginTop="4dp"/>
+
+            <Button
+                android:id="@+id/btnSocial"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:text="Launch"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
