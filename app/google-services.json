@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "100481538372",
+    "project_id": "cyberpath-72c00",
+    "storage_bucket": "cyberpath-72c00.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100481538372:android:6f5b9e2cf05ff8b18cdf11",
+        "android_client_info": {
+          "package_name": "com.example.cyberpath"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ5yHWG6nFbnACSBhNaxcSJ0MNKKH6dZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

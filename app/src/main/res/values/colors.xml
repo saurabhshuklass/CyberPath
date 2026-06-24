@@ -1,0 +1,15 @@
+<resources>
+
+    <color name="bg_dark">#08142A</color>
+
+    <color name="card_bg">#15233D</color>
+
+    <color name="primary_blue">#4E8DF5</color>
+
+    <color name="accent_blue">#35CFFF</color>
+
+    <color name="text_white">#FFFFFF</color>
+
+    <color name="text_gray">#BFC6D8</color>
+
+</resources>
