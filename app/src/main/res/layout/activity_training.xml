@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#08142A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/login_card_bg"
+                android:padding="10dp"
+                android:src="@drawable/back"
+                app:tint="#35CFFF" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Training Mode"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:id="@+id/txtEmailNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email 1 of 10"
+                    android:textColor="#35CFFF"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/txtScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Score : 0"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Email Card -->
+
+        <LinearLayout
+            android:id="@+id/emailCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/login_card_bg"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FROM"
+                android:textColor="#35CFFF"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtSender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SUBJECT"
+                android:textColor="#35CFFF"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/txtSubject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFC857"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="5dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="#2D4D73"/>
+
+            <TextView
+                android:id="@+id/txtBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textColor="#D6E2F0"
+                android:textSize="16sp"
+                android:lineSpacingExtra="5dp"/>
+
+        </LinearLayout>
+
+        <!-- Answer Buttons -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/btnSafe"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="✓ SAFE"
+                android:textStyle="bold"
+                android:textColor="#00FF88"
+                android:background="@drawable/login_card_bg"/>
+
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="1dp"/>
+
+            <Button
+                android:id="@+id/btnPhishing"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="🚨 PHISHING"
+                android:textStyle="bold"
+                android:textColor="#FF4D6D"
+                android:background="@drawable/login_card_bg"/>
+
+        </LinearLayout>
+
+        <!-- Result Card -->
+
+        <LinearLayout
+            android:id="@+id/resultCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_card_bg"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txtResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Correct!"
+                android:textColor="#00FF88"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WHY?"
+                android:textColor="#35CFFF"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/txtExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_login_bg"
+            android:text="Next Email →"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <!-- Final Result Card -->
+
+        <LinearLayout
+            android:id="@+id/finalCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_card_bg"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎉 Training Completed"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtFinalScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Score : 10 / 10"
+                android:textColor="#35CFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtRemark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Excellent!"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/btnFinish"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/btn_login_bg"
+                android:text="Finish Training"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

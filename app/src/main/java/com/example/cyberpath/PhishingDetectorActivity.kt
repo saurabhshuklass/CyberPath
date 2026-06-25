@@ -1,20 +1,49 @@
 package com.example.cyberpath
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class PhishingDetectorActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_phishing_detector)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        // Views
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        val btnTraining = findViewById<Button>(R.id.btnTraining)
+        val btnAnalyzer = findViewById<Button>(R.id.btnAnalyzer)
+
+        // Back Button
+        btnBack.setOnClickListener {
+            finish()
+        }
+
+        // Open Training Mode
+        btnTraining.setOnClickListener {
+
+            startActivity(
+                Intent(
+                    this,
+                    TrainingActivity::class.java
+                )
+            )
+
+        }
+
+        // Open Email Analyzer
+        btnAnalyzer.setOnClickListener {
+
+            startActivity(
+                Intent(
+                    this,
+                    EmailAnalyzerActivity::class.java
+                )
+            )
+
         }
     }
 }
