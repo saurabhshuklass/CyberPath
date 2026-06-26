@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.example.cyberpath.utils.ProgressManager
 class PasswordStrengthActivity : AppCompatActivity() {
 
     private lateinit var firestore: FirebaseFirestore
@@ -148,79 +149,34 @@ class PasswordStrengthActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val uid =
-                auth.currentUser?.uid
-                    ?: return@setOnClickListener
+            ProgressManager.markPracticalCompleted(
 
-            val practicalRef =
-                firestore.collection("practical_progress")
-                    .document(uid)
+                "Password Strength Checker",
 
-            practicalRef.get()
-
-                .addOnSuccessListener { document ->
-
-                    if (
-                        document.getBoolean(
-                            "Password Strength Checker"
-                        ) == true
-                    ) {
-
-                        Toast.makeText(
-                            this,
-                            "Lab Already Completed",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                    } else {
-
-                        practicalRef.set(
-                            mapOf(
-                                "Password Strength Checker" to true
-                            ),
-                            SetOptions.merge()
-                        )
-
-                            .addOnSuccessListener {
-
-                                firestore.collection("users")
-                                    .document(uid)
-                                    .update(
-                                        "completedPracticals",
-                                        FieldValue.increment(1)
-                                    )
-
-                                    .addOnSuccessListener {
-
-                                        Toast.makeText(
-                                            this,
-                                            "Lab Completed Successfully",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-
-                                        finish()
-                                    }
-
-                                    .addOnFailureListener {
-
-                                        Toast.makeText(
-                                            this,
-                                            "Failed to Update Progress",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-                            }
-                    }
-                }
-
-                .addOnFailureListener {
+                onSuccess = {
 
                     Toast.makeText(
                         this,
-                        "Failed to Check Progress",
+                        "Lab Completed Successfully",
                         Toast.LENGTH_SHORT
                     ).show()
+
+                    finish()
+
+                },
+
+                onFailure = { message ->
+
+                    Toast.makeText(
+                        this,
+                        message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+
                 }
+
+            )
+
         }
     }
 }
