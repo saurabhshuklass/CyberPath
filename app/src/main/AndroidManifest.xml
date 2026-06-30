@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CyberPath">
         <activity
-            android:name=".UrlSafetyCheckerActivity"
+            android:name=".SimulationResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UrlSafetyActivity"
             android:exported="false" />
         <activity
             android:name=".EmailAnalyzerActivity"
@@ -23,9 +26,10 @@
         <activity
             android:name=".SocialEngineeringActivity"
             android:exported="false" />
-        <activity
-            android:name=".UrlSafetyActivity"
-            android:exported="false" />
+
+        <activity android:name=".SimulationActivity" />
+
+
         <activity
             android:name=".PhishingDetectorActivity"
             android:exported="false" />

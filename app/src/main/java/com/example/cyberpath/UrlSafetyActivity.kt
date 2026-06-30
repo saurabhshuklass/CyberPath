@@ -13,7 +13,6 @@ import com.google.android.material.textfield.TextInputEditText
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import com.example.cyberpath.network.SafeBrowsingRepository
-import com.example.cyberpath.BuildConfig
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.example.cyberpath.utils.ProgressManager

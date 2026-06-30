@@ -1,20 +1,52 @@
 package com.example.cyberpath
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class SocialEngineeringActivity : AppCompatActivity() {
+
+    private lateinit var btnBack: ImageButton
+    private lateinit var btnStartSimulation: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_social_engineering)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        initViews()
+
+        setupClickListeners()
+    }
+
+    private fun initViews() {
+
+        btnBack = findViewById(R.id.btnBack)
+
+        btnStartSimulation =
+            findViewById(R.id.btnStartSimulation)
+
+    }
+
+    private fun setupClickListeners() {
+
+        // Back Button
+        btnBack.setOnClickListener {
+            finish()
         }
+
+        // Start Simulation
+        btnStartSimulation.setOnClickListener {
+
+            startActivity(
+                Intent(
+                    this,
+                    SimulationActivity::class.java
+                )
+            )
+
+        }
+
     }
 }
