@@ -12,6 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CyberPath">
         <activity
+            android:name=".QuizResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizRulesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BeginnerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IntermediateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdavancedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuestionRepository"
+            android:exported="false" />
+        <activity
+            android:name=".QuizQuestionActivity"
+            android:exported="false" />
+        <activity
             android:name=".SimulationResultActivity"
             android:exported="false" />
         <activity
@@ -26,10 +47,7 @@
         <activity
             android:name=".SocialEngineeringActivity"
             android:exported="false" />
-
         <activity android:name=".SimulationActivity" />
-
-
         <activity
             android:name=".PhishingDetectorActivity"
             android:exported="false" />
@@ -58,6 +76,9 @@
 
         <activity
             android:name=".TopicDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizHistory"
             android:exported="false" />
         <activity
             android:name=".LearningActivity"

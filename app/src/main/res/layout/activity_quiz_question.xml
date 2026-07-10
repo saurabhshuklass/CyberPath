@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#08142A"
+    android:padding="20dp">
+
+    <!-- Header -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/login_card_bg"
+            android:padding="12dp"
+            android:src="@drawable/back"
+            android:tint="#35CFFF"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtQuizLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🟢 Beginner Quiz"
+                android:textColor="#00E676"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtQuestionNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Question 1 of 10"
+                android:textColor="#8BA3D0"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:00"
+            android:textColor="#35CFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <!-- Progress -->
+
+    <ProgressBar
+        android:id="@+id/progressQuestions"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="20dp"
+        android:max="10"
+        android:progress="1"
+        android:progressTint="#35CFFF"/>
+
+    <TextView
+        android:id="@+id/txtProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="10%"
+        android:textColor="#35CFFF"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Cyber Security Assessment"
+        android:textColor="#8BA3D0"
+        android:textSize="13sp"/>
+
+    <!-- ================= QUESTION CARD ================= -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/login_card_bg"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QUESTION"
+            android:textColor="#35CFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Which of the following best describes the CIA Triad in Cyber Security?"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:lineSpacingExtra="5dp" />
+
+    </LinearLayout>
+
+    <!-- ================= OPTIONS TITLE ================= -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Choose the correct answer"
+        android:textColor="#8BA3D0"
+        android:textSize="14sp" />
+
+    <!-- ================= OPTION 1 ================= -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardOption1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:cardBackgroundColor="#15233D"
+        app:cardCornerRadius="14dp"
+        app:strokeColor="#35CFFF"
+        app:strokeWidth="1dp">
+
+        <TextView
+            android:id="@+id/txtOption1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:text="Option 1"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ================= OPTION 2 ================= -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardOption2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:cardBackgroundColor="#15233D"
+        app:cardCornerRadius="14dp"
+        app:strokeColor="#35CFFF"
+        app:strokeWidth="1dp">
+
+        <TextView
+            android:id="@+id/txtOption2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:text="Option 2"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ================= OPTION 3 ================= -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardOption3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:cardBackgroundColor="#15233D"
+        app:cardCornerRadius="14dp"
+        app:strokeColor="#35CFFF"
+        app:strokeWidth="1dp">
+
+        <TextView
+            android:id="@+id/txtOption3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:text="Option 3"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ================= OPTION 4 ================= -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardOption4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:cardBackgroundColor="#15233D"
+        app:cardCornerRadius="14dp"
+        app:strokeColor="#35CFFF"
+        app:strokeWidth="1dp">
+
+        <TextView
+            android:id="@+id/txtOption4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:text="Option 4"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ================= NEXT BUTTON ================= -->
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_login_bg"
+        android:text="Next Question"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold"/>
+
+    <!-- ================= SUBMIT BUTTON ================= -->
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_login_bg"
+        android:text="Submit Quiz"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <!-- ================= INFO ================= -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="💡 Select one answer and press Next to continue."
+        android:textColor="#8BA3D0"
+        android:textSize="14sp"/>
+
+</LinearLayout>
