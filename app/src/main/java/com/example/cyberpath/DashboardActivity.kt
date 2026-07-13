@@ -13,7 +13,7 @@ class DashboardActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
-
+    private lateinit var txtCertificateStatus: TextView
     private lateinit var txtName: TextView
     private lateinit var txtProgressPercent: TextView
     private lateinit var txtProgressInfo: TextView
@@ -25,7 +25,7 @@ class DashboardActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
-
+        txtCertificateStatus = findViewById(R.id.txtCertificateStatus)
         txtName = findViewById(R.id.txtName)
         txtProgressPercent = findViewById(R.id.txtProgressPercent)
         txtProgressInfo = findViewById(R.id.txtProgressInfo)
@@ -65,12 +65,59 @@ class DashboardActivity : AppCompatActivity() {
 
         findViewById<LinearLayout>(R.id.cardCertificate)
             .setOnClickListener {
-                startActivity(
-                    Intent(
-                        this,
-                        CertificateActivity::class.java
-                    )
-                )
+
+                val uid = auth.currentUser?.uid ?: return@setOnClickListener
+
+                firestore.collection("users")
+                    .document(uid)
+                    .get()
+                    .addOnSuccessListener { document ->
+
+                        val topics = document.getLong("completedTopics") ?: 0
+                        val practicals = document.getLong("completedPracticals") ?: 0
+                        val quizzes = document.getLong("completedQuizzes") ?: 0
+
+                        // Values displayed in the UI (don't exceed the maximum)
+                        val displayTopics = minOf(topics.toInt(), 8)
+                        val displayPracticals = minOf(practicals.toInt(), 4)
+                        val displayQuizzes = minOf(quizzes.toInt(), 1)
+
+                        if (topics >= 8 &&
+                            practicals >= 4 &&
+                            quizzes >= 1
+                        ) {
+
+                            startActivity(
+                                Intent(
+                                    this,
+                                    CertificateActivity::class.java
+                                )
+                            )
+
+                        } else {
+
+                            androidx.appcompat.app.AlertDialog.Builder(this)
+                                .setTitle("Certificate Locked")
+                                .setMessage(
+                                    """
+Complete the following:
+
+Topics : $displayTopics / 8
+
+Practicals : $displayPracticals / 4
+
+Quiz : $displayQuizzes / 1
+
+Finish all requirements to unlock your certificate.
+    """.trimIndent()
+                                )
+                                .setPositiveButton("OK", null)
+                                .show()
+
+                        }
+
+                    }
+
             }
     }
 
@@ -91,6 +138,12 @@ class DashboardActivity : AppCompatActivity() {
                     val completed =
                         document.getLong("completedTopics") ?: 0
 
+                    val completedPracticals =
+                        document.getLong("completedPracticals") ?: 0
+
+                    val completedQuizzes =
+                        document.getLong("completedQuizzes") ?: 0
+
                     txtName.text = "$name 👋"
 
                     val percent =
@@ -104,6 +157,23 @@ class DashboardActivity : AppCompatActivity() {
 
                     txtProgressInfo.text =
                         "$completed of 8 topics completed"
+
+                    val certificateUnlocked =
+                        completed >= 8 &&
+                                completedPracticals >= 4 &&
+                                completedQuizzes >= 1
+
+                    if (certificateUnlocked) {
+
+                        txtCertificateStatus.text =
+                            "🏆 Available"
+
+                    } else {
+
+                        txtCertificateStatus.text =
+                            "🔒 Locked"
+
+                    }
                 }
             }
     }

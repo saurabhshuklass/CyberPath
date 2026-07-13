@@ -27,7 +27,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/login_card_bg"
                 android:padding="10dp"
-                android:src="@drawable/back"
+                android:src="@drawable/ic_back"
                 app:tint="#35CFFF" />
 
             <LinearLayout

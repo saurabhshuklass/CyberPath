@@ -214,9 +214,10 @@
                     android:layout_marginTop="15dp"/>
 
                 <TextView
+                    android:id="@+id/txtCertificateStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Earn Rewards"
+                    android:text="Checking..."
                     android:textColor="#8BA3D0"/>
             </LinearLayout>
 

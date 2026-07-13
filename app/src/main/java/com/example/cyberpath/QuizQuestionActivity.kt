@@ -63,7 +63,7 @@ class QuizQuestionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz_question)
 
         initViews()
-
+        txtProgress = findViewById(R.id.txtProgress)
         quizLevel = intent.getStringExtra("QUIZ_LEVEL") ?: "BEGINNER"
 
         loadQuestions()

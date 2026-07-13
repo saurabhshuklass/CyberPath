@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#08142A">
+    android:background="#08142A"
+    android:paddingTop="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +27,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/login_card_bg"
                 android:padding="10dp"
-                android:src="@drawable/back"
+                android:src="@drawable/ic_back"
                 app:tint="#35CFFF" />
 
             <LinearLayout
