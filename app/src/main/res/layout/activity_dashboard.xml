@@ -217,7 +217,7 @@
                     android:id="@+id/txtCertificateStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Checking..."
+                    android:text="Tap to View"
                     android:textColor="#8BA3D0"/>
             </LinearLayout>
 

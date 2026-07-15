@@ -66,57 +66,12 @@ class DashboardActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.cardCertificate)
             .setOnClickListener {
 
-                val uid = auth.currentUser?.uid ?: return@setOnClickListener
-
-                firestore.collection("users")
-                    .document(uid)
-                    .get()
-                    .addOnSuccessListener { document ->
-
-                        val topics = document.getLong("completedTopics") ?: 0
-                        val practicals = document.getLong("completedPracticals") ?: 0
-                        val quizzes = document.getLong("completedQuizzes") ?: 0
-
-                        // Values displayed in the UI (don't exceed the maximum)
-                        val displayTopics = minOf(topics.toInt(), 8)
-                        val displayPracticals = minOf(practicals.toInt(), 4)
-                        val displayQuizzes = minOf(quizzes.toInt(), 1)
-
-                        if (topics >= 8 &&
-                            practicals >= 4 &&
-                            quizzes >= 1
-                        ) {
-
-                            startActivity(
-                                Intent(
-                                    this,
-                                    CertificateActivity::class.java
-                                )
-                            )
-
-                        } else {
-
-                            androidx.appcompat.app.AlertDialog.Builder(this)
-                                .setTitle("Certificate Locked")
-                                .setMessage(
-                                    """
-Complete the following:
-
-Topics : $displayTopics / 8
-
-Practicals : $displayPracticals / 4
-
-Quiz : $displayQuizzes / 1
-
-Finish all requirements to unlock your certificate.
-    """.trimIndent()
-                                )
-                                .setPositiveButton("OK", null)
-                                .show()
-
-                        }
-
-                    }
+                startActivity(
+                    Intent(
+                        this,
+                        CertificateActivity::class.java
+                    )
+                )
 
             }
     }
