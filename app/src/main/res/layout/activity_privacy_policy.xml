@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#08142A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Toolbar -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/card_bg"
+                android:padding="12dp"
+                android:src="@drawable/ic_back"
+                android:tint="#35CFFF"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Privacy Policy"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Your privacy is important to us."
+            android:textColor="#35CFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="CyberPath is an educational application designed to help users learn Cyber Security through lessons, practical exercises and quizzes."
+            android:textColor="#BFC6D8"
+            android:textSize="15sp"/>
+
+        <!-- Data Collection -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="1. Data We Collect"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Name\n• Email Address\n• Learning Progress\n• Quiz Scores\n• Certificate Information"
+            android:textColor="#BFC6D8"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Firebase -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="2. Firebase Services"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CyberPath uses Firebase Authentication and Cloud Firestore to securely manage user accounts and progress."
+            android:textColor="#BFC6D8"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- API -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="3. Third-Party APIs"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Google Safe Browsing API is used only to analyze URLs for security risks. No personal information is shared."
+            android:textColor="#BFC6D8"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Security -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="4. Security"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your information is stored securely using Firebase services. CyberPath does not sell or share your personal information."
+            android:textColor="#BFC6D8"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Contact -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="5. Contact"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email: work.saurabhshuklass@gmail.com"
+            android:textColor="#35CFFF"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="Last Updated: July 2026"
+            android:textColor="#7E8CA8"/>
+
+    </LinearLayout>
+
+</ScrollView>

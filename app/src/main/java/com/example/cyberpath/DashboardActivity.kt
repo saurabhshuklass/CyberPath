@@ -8,7 +8,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
+import android.widget.ImageButton
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 class DashboardActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
@@ -18,6 +23,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var txtProgressPercent: TextView
     private lateinit var txtProgressInfo: TextView
     private lateinit var progressBar: ProgressBar
+    private lateinit var btnProfile: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +36,11 @@ class DashboardActivity : AppCompatActivity() {
         txtProgressPercent = findViewById(R.id.txtProgressPercent)
         txtProgressInfo = findViewById(R.id.txtProgressInfo)
         progressBar = findViewById(R.id.progressBar)
+        btnProfile = findViewById(R.id.btnProfile)
 
         loadUserData()
+
+        requestNotificationPermission()
 
         findViewById<LinearLayout>(R.id.cardLearning)
             .setOnClickListener {
@@ -74,6 +83,17 @@ class DashboardActivity : AppCompatActivity() {
                 )
 
             }
+
+        btnProfile.setOnClickListener {
+
+            startActivity(
+                Intent(
+                    this,
+                    ProfileActivity::class.java
+                )
+            )
+
+        }
     }
 
     private fun loadUserData() {
@@ -137,5 +157,27 @@ class DashboardActivity : AppCompatActivity() {
         super.onResume()
 
         loadUserData()
+    }
+
+    private fun requestNotificationPermission() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    1001
+                )
+
+            }
+
+        }
+
     }
 }

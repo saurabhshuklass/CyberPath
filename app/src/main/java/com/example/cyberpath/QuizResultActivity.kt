@@ -181,8 +181,14 @@ class QuizResultActivity : AppCompatActivity() {
 
                 val updates = hashMapOf<String, Any>()
 
-                updates["completedQuizzes"] =
-                    FieldValue.increment(1)
+                val completedQuizzes =
+                    document.getLong("completedQuizzes") ?: 0
+
+                if (completedQuizzes < 1) {
+
+                    updates["completedQuizzes"] = 1
+
+                }
 
                 updates["quizScore"] = percentage
 

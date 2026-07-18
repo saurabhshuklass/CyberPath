@@ -14,30 +14,59 @@
 
         <!-- Header -->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="WELCOME"
-            android:textColor="#7EA4FF"
-            android:textSize="12sp"
-            android:layout_marginTop="50dp"/>
+        <!-- Header -->
 
-        <TextView
-            android:id="@+id/txtName"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Saurabh 👋"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:textStyle="bold"/>
+            android:layout_marginTop="50dp">
 
-        <TextView
-            android:id="@+id/txtEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MCA Cyber Security"
-            android:textColor="#8BA3D0"
-            android:textSize="14sp"/>
+            <!-- Welcome -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WELCOME"
+                    android:textColor="#7EA4FF"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saurabh 👋"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MCA Cyber Security"
+                    android:textColor="#8BA3D0"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+            <!-- Profile Button -->
+
+            <ImageButton
+                android:id="@+id/btnProfile"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/card_bg"
+                android:padding="12dp"
+                android:src="@drawable/ic_profile"
+                android:scaleType="centerInside"/>
+
+        </RelativeLayout>
 
         <!-- Progress Card -->
 
