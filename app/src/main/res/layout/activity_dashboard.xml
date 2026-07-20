@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefreshNews"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#08142A">
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="#08142A">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -263,30 +270,75 @@
             android:textStyle="bold"
             android:layout_marginTop="20dp"/>
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieLoading"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_fileName="loading_news.json"/>
+
         <LinearLayout
+            android:id="@+id/layoutEmptyState"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/card_bg"
+            android:gravity="center"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginTop="12dp">
+            android:padding="32dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_no_news" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="⚠ Critical Zero-Day Vulnerability Alert"
-                android:textColor="#FF6B6B"
-                android:textStyle="bold"/>
+                android:layout_marginTop="16dp"
+                android:text="No Cyber Security News Available"
+                android:textColor="@color/text_white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Stay updated with latest cyber threats and security practices."
-                android:textColor="#BFC6D8"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Pull down to refresh or check your internet connection."
+                android:textAlignment="center"
+                android:textColor="@color/text_gray"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/txtOfflineMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#2E7D32"
+            android:padding="10dp"
+            android:text="📶 Offline Mode - Showing last saved cyber security news"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNews"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_marginTop="12dp"
+            android:nestedScrollingEnabled="false"/>
+
     </LinearLayout>
 
-</ScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

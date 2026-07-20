@@ -12,8 +12,20 @@ import android.widget.ImageButton
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
+import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.cyberpath.adapter.NewsAdapter
+import com.example.cyberpath.repository.NewsRepository
+import kotlinx.coroutines.launch
+import com.airbnb.lottie.LottieAnimationView
+import com.example.cyberpath.utils.NewsCacheManager
+import com.example.cyberpath.utils.NetworkUtils
+
 class DashboardActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
@@ -24,6 +36,14 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var txtProgressInfo: TextView
     private lateinit var progressBar: ProgressBar
     private lateinit var btnProfile: ImageButton
+    private lateinit var rvNews: RecyclerView
+    private lateinit var swipeRefreshNews: SwipeRefreshLayout
+    private lateinit var lottieLoading: LottieAnimationView
+    private val newsRepository = NewsRepository()
+    private lateinit var newsCacheManager: NewsCacheManager
+    private lateinit var layoutEmptyState: LinearLayout
+    private lateinit var txtOfflineMode: TextView
+    private val NEWS_API_KEY = BuildConfig.NEWS_API_KEY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,14 +51,28 @@ class DashboardActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
+        newsCacheManager = NewsCacheManager(this)
         txtCertificateStatus = findViewById(R.id.txtCertificateStatus)
         txtName = findViewById(R.id.txtName)
         txtProgressPercent = findViewById(R.id.txtProgressPercent)
         txtProgressInfo = findViewById(R.id.txtProgressInfo)
         progressBar = findViewById(R.id.progressBar)
         btnProfile = findViewById(R.id.btnProfile)
+        rvNews = findViewById(R.id.rvNews)
+        swipeRefreshNews = findViewById(R.id.swipeRefreshNews)
+        lottieLoading = findViewById(R.id.lottieLoading)
+        layoutEmptyState = findViewById(R.id.layoutEmptyState)
+        txtOfflineMode = findViewById(R.id.txtOfflineMode)
+        rvNews.layoutManager = LinearLayoutManager(this)
+        rvNews.setHasFixedSize(true)
+
 
         loadUserData()
+        loadNews()
+
+        swipeRefreshNews.setOnRefreshListener {
+            loadNews()
+        }
 
         requestNotificationPermission()
 
@@ -151,6 +185,104 @@ class DashboardActivity : AppCompatActivity() {
                     }
                 }
             }
+    }
+
+    private fun loadNews() {
+
+        lottieLoading.visibility = View.VISIBLE
+        layoutEmptyState.visibility = View.GONE
+        txtOfflineMode.visibility = View.GONE
+        rvNews.visibility = View.GONE
+
+        if (!NetworkUtils.isInternetAvailable(this)) {
+
+            val cachedNews = newsCacheManager.getNews()
+
+            lottieLoading.visibility = View.GONE
+
+            if (cachedNews.isNotEmpty()) {
+
+                txtOfflineMode.visibility = View.VISIBLE
+
+                rvNews.visibility = View.VISIBLE
+
+                layoutEmptyState.visibility = View.GONE
+
+                rvNews.adapter = NewsAdapter(cachedNews)
+
+            } else {
+
+                layoutEmptyState.visibility = View.VISIBLE
+
+                rvNews.visibility = View.GONE
+
+            }
+
+            return
+
+        }
+
+        lifecycleScope.launch {
+
+            try {
+
+                val newsList =
+                    newsRepository.getCyberSecurityNews(NEWS_API_KEY)
+
+                if (newsList.isNotEmpty()) {
+
+                    // Save latest news for offline mode
+                    newsCacheManager.saveNews(newsList)
+
+                    rvNews.adapter = NewsAdapter(newsList)
+
+                    layoutEmptyState.visibility = View.GONE
+                    rvNews.visibility = View.VISIBLE
+
+                } else {
+
+                    // API returned no news
+                    layoutEmptyState.visibility = View.VISIBLE
+                    rvNews.visibility = View.GONE
+
+                }
+
+            } catch (e: Exception) {
+
+                e.printStackTrace()
+
+                // Try loading cached news
+                val cachedNews =
+                    newsCacheManager.getNews()
+
+                if (cachedNews.isNotEmpty()) {
+
+                    rvNews.adapter = NewsAdapter(cachedNews)
+
+                    layoutEmptyState.visibility = View.GONE
+                    rvNews.visibility = View.VISIBLE
+
+                    txtOfflineMode.visibility = View.VISIBLE
+
+                } else {
+
+                    layoutEmptyState.visibility = View.VISIBLE
+                    rvNews.visibility = View.GONE
+
+                }
+
+            } finally {
+
+                lottieLoading.visibility = View.GONE
+
+                if (::swipeRefreshNews.isInitialized) {
+                    swipeRefreshNews.isRefreshing = false
+                }
+
+            }
+
+        }
+
     }
 
     override fun onResume() {

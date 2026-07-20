@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,9 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CyberPath">
+        <activity
+            android:name=".NewsDetailActivity"
+            android:exported="false" />
+
         <receiver
             android:name=".receiver.ReminderReceiver"
             android:exported="false" />
+        <receiver
+            android:name=".receiver.ReminderReceiver"
+            android:exported="false" />
+
         <activity
             android:name=".AboutActivity"
             android:exported="false" />
@@ -62,7 +71,6 @@
         <activity
             android:name=".AdavancedActivity"
             android:exported="false" />
-
         <activity
             android:name=".QuizQuestionActivity"
             android:exported="false" />
@@ -109,11 +117,6 @@
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
-
-        <receiver
-            android:name=".receiver.ReminderReceiver"
-            android:exported="false"/>
-
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />

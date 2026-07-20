@@ -10,7 +10,7 @@ import com.example.cyberpath.LoginActivity
 import com.example.cyberpath.R
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-
+import android.content.Context
 class IntroActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager2
@@ -68,6 +68,15 @@ class IntroActivity : AppCompatActivity() {
 
             } else {
 
+                val pref = getSharedPreferences(
+                    "CyberPathPref",
+                    Context.MODE_PRIVATE
+                )
+
+                pref.edit()
+                    .putBoolean("introSeen", true)
+                    .apply()
+
                 startActivity(
                     Intent(
                         this,
@@ -81,6 +90,15 @@ class IntroActivity : AppCompatActivity() {
 
         txtSkip.setOnClickListener {
 
+            val pref = getSharedPreferences(
+                "CyberPathPref",
+                Context.MODE_PRIVATE
+            )
+
+            pref.edit()
+                .putBoolean("introSeen", true)
+                .apply()
+
             startActivity(
                 Intent(
                     this,
@@ -89,6 +107,7 @@ class IntroActivity : AppCompatActivity() {
             )
 
             finish()
+
         }
 
         viewPager.registerOnPageChangeCallback(

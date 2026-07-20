@@ -254,6 +254,16 @@ Learn Cyber Security in a practical way.
 
                 .setPositiveButton("Logout") { _, _ ->
 
+                    val pref = getSharedPreferences(
+                        "CyberPathPref",
+                        MODE_PRIVATE
+                    )
+
+                    pref.edit()
+                        .putBoolean("keepLogin", false)
+                        .putBoolean("introSeen", false)
+                        .apply()
+
                     auth.signOut()
 
                     val intent = Intent(

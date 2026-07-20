@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
-
+import android.content.Context
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
@@ -27,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
         val txtRegister = findViewById<TextView>(R.id.txtRegister)
 
         val txtForgot = findViewById<TextView>(R.id.txtForgotPassword)
+        val cbKeepLogin = findViewById<com.google.android.material.checkbox.MaterialCheckBox>(R.id.cbKeepLogin)
 
         btnLogin.setOnClickListener {
 
@@ -56,6 +57,19 @@ class LoginActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
 
+                    val pref = getSharedPreferences(
+                        "CyberPathPref",
+                        Context.MODE_PRIVATE
+                    )
+
+                    pref.edit()
+
+                        .putBoolean(
+                            "keepLogin",
+                            cbKeepLogin.isChecked
+                        )
+
+                        .apply()
                     startActivity(
                         Intent(
                             this,

@@ -114,6 +114,15 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cbKeepLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Keep me signed in"
+                android:textColor="#BFC6D8"
+                android:buttonTint="@color/accent_blue"/>
+
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
