@@ -8,10 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.cyberpath.NewsDetailActivity
 import com.example.cyberpath.R
 import com.example.cyberpath.model.NewsArticle
-
+import com.example.cyberpath.utils.DateUtils
 class NewsAdapter(
     private val newsList: List<NewsArticle>
 ) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
@@ -52,13 +54,13 @@ class NewsAdapter(
 
         holder.tvSource.text =
             when {
-                !article.source.isNullOrBlank() -> article.source
                 !article.author.isNullOrBlank() -> article.author
+                !article.source.isNullOrBlank() -> article.source
                 else -> "Cyber News"
             }
 
         holder.tvDate.text =
-            article.published?.take(10) ?: ""
+            DateUtils.formatDate(article.published)
 
         if (!article.image.isNullOrBlank()) {
 
@@ -67,8 +69,13 @@ class NewsAdapter(
             Glide.with(holder.itemView.context)
                 .load(article.image)
                 .centerCrop()
+                .thumbnail(0.25f)
                 .placeholder(R.drawable.news_placeholder)
                 .error(R.drawable.news_placeholder)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .transform(
+                    RoundedCorners(24)
+                )
                 .into(holder.imgNews)
 
         } else {

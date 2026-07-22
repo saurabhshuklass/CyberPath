@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
 import java.text.SimpleDateFormat
 import java.util.Locale
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 class NewsDetailActivity : AppCompatActivity() {
 
@@ -72,6 +74,7 @@ class NewsDetailActivity : AppCompatActivity() {
         val author = intent.getStringExtra("author")
         val date = intent.getStringExtra("date")
         val description = intent.getStringExtra("description")
+
         articleUrl = intent.getStringExtra("url") ?: ""
 
         txtTitle.text = title ?: "No Title"
@@ -90,11 +93,25 @@ class NewsDetailActivity : AppCompatActivity() {
             else
                 "No description available."
 
-        Glide.with(this)
-            .load(image)
-            .placeholder(R.drawable.news_placeholder)
-            .error(R.drawable.news_placeholder)
-            .into(imgNews)
+        if (!image.isNullOrBlank()) {
+
+            imgNews.visibility = android.view.View.VISIBLE
+
+            Glide.with(this)
+                .load(image)
+                .centerCrop()
+                .thumbnail(0.25f)
+                .placeholder(R.drawable.news_placeholder)
+                .error(R.drawable.news_placeholder)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .transform(RoundedCorners(24))
+                .into(imgNews)
+
+        } else {
+
+            imgNews.visibility = android.view.View.GONE
+
+        }
 
     }
 

@@ -38,25 +38,29 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="WELCOME"
-                    android:textColor="#7EA4FF"
+                    android:text="WELCOME BACK"
+                    android:textColor="@color/accent_blue"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
                     android:textSize="12sp"/>
 
                 <TextView
                     android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:text="Saurabh 👋"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30sp"
-                    android:textStyle="bold"/>
+                    android:textColor="@color/text_white"
+                    android:textStyle="bold"
+                    android:textSize="30sp"/>
 
                 <TextView
                     android:id="@+id/txtEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="MCA Cyber Security"
-                    android:textColor="#8BA3D0"
+                    android:layout_marginTop="6dp"
+                    android:text="Keep learning. Keep yourself secure."
+                    android:textColor="@color/text_gray"
                     android:textSize="14sp"/>
 
             </LinearLayout>
@@ -65,10 +69,12 @@
 
             <ImageButton
                 android:id="@+id/btnProfile"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:elevation="6dp"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/card_bg"
+                android:backgroundTint="@color/card_bg"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:padding="12dp"
                 android:src="@drawable/ic_profile"
                 android:scaleType="centerInside"/>
@@ -126,6 +132,16 @@
                 android:textColor="#8BA3D0"
                 android:layout_marginTop="10dp"/>
 
+            <TextView
+                android:id="@+id/txtMotivation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Keep learning! 🚀"
+                android:textColor="@color/accent_blue"
+                android:textSize="13sp"
+                android:textStyle="italic"/>
+
         </LinearLayout>
 
         <!-- Learning + Practice -->
@@ -143,19 +159,24 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
                 android:background="@drawable/card_bg"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="6dp"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="18dp">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/book"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Learning"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_white"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginTop="15dp"/>
 
@@ -163,7 +184,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="8 Topics"
-                    android:textColor="#8BA3D0"/>
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -173,19 +195,24 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
                 android:background="@drawable/card_bg"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="6dp"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="18dp">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/practice"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Training"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_white"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginTop="15dp"/>
 
@@ -193,7 +220,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4 Labs"
-                    android:textColor="#8BA3D0"/>
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -203,19 +231,24 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
                 android:background="@drawable/card_bg"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="6dp"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="18dp">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/quiz"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Quizzes"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_white"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginTop="15dp"/>
 
@@ -223,7 +256,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="150 Questions"
-                    android:textColor="#8BA3D0"/>
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -233,19 +267,24 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
                 android:background="@drawable/card_bg"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="6dp"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="18dp">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/certificate"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Certificates"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_white"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginTop="15dp"/>
 
@@ -254,21 +293,57 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tap to View"
-                    android:textColor="#8BA3D0"/>
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp"/>
             </LinearLayout>
 
         </GridLayout>
 
         <!-- News Section -->
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cyber Security News"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cyber Security News"
+                android:textColor="@color/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/txtNewsStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LIVE"
+                    android:textColor="#4CAF50"
+                    android:textStyle="bold"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/txtLastUpdated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Updated: Just now"
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieLoading"

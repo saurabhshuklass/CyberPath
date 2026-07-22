@@ -8,9 +8,11 @@
     android:layout_marginTop="12dp"
     android:clickable="true"
     android:focusable="true"
+    android:paddingTop="20dp"
     app:cardBackgroundColor="@color/card_bg"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    android:layout_marginBottom="12dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,6 +39,7 @@
                 android:text="News Title"
                 android:textColor="@color/text_white"
                 android:textSize="18sp"
+                android:lineSpacingExtra="2dp"
                 android:textStyle="bold"
                 android:maxLines="2"
                 android:ellipsize="end"/>
@@ -49,7 +52,8 @@
                 android:text="Description"
                 android:textColor="@color/text_gray"
                 android:textSize="14sp"
-                android:maxLines="3"
+                android:maxLines="2"
+                android:lineSpacingExtra="2dp"
                 android:ellipsize="end"/>
 
             <LinearLayout
